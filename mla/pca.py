@@ -47,8 +47,7 @@ class PCA(BaseEstimator):
             s, Vh = np.linalg.eig(np.cov(X.T))
             Vh = Vh.T
 
-        s_squared = s ** 2
-        variance_ratio = s_squared / s_squared.sum()
+        variance_ratio = s / s_squared.sum()
         logging.info("Explained variance ratio: %s" % (variance_ratio[0: self.n_components]))
         self.components = Vh[0: self.n_components]
 
